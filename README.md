@@ -43,7 +43,7 @@
   - JdbcTemplate : Jpa 를 사용해 단일쿼리로 구현하기 어려운 경우 사용했습니다. (read only)
 
 - DB 데이터 확인
-  - H2 웹 console 을 통해 DB를 확인할 수 있습니다.
+  - 서버 기동 후 H2 웹 console 을 통해 DB를 확인할 수 있습니다.
   - http://localhost:8080/h2-console
 
 
