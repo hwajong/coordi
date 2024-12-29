@@ -46,10 +46,6 @@
   - H2 웹 console 을 통해 DB를 확인할 수 있습니다.
   - http://localhost:8080/h2-console
 
-### Swagger 
-- 아래의 Swagger 페이지를 통해 API 를 확인하고 테스트해 볼 수 있습니다. 
-- url : http://localhost:8080/swagger-ui/index.html
-
 
 ### 실행방법
 ```bash
@@ -62,6 +58,12 @@
 # 테스트 실행 
 ./gradlew clean test
 ```
+
+
+### Swagger 
+- 서버 기동 후 아래의 Swagger 페이지를 통해 API 를 확인하고 테스트할 수 있습니다. 
+- url : http://localhost:8080/swagger-ui/index.html
+
 
 ### 코드 구현 참고 사항 
 - ProductService.kt
