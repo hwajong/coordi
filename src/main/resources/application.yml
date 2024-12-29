@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: coordi
+    
+  cache:
+    type: simple # 메모리 기반 캐시
+  
+  datasource:
+    url: jdbc:h2:~/test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  
+  sql.init.mode: always # h2 db 항상 초기화
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate # 엔티티 DDL 체크만
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false # 쿼리 로그 포맷팅
+        use_sql_comment: true
+        highlight_sql: true
+
+# actuator 
+management.endpoints.web.exposure.include: health, mappings
+
+# 로깅설정
+logging.level:
+  org.springframework.jdbc.datasource: DEBUG # DB 초기화 스크립트 실행 로깅
+  # org.springframework.cache: TRACE # 캐시 히트 여부 로깅 
+  org.hibernate.SQL: DEBUG
+  org.hibernate.type.descriptor.sql: TRACE
+  org.hibernate.orm.jdbc.bind: TRACE # 바인딩 파라미터 로깅  
+  com.leo.coordi: TRACE
+  
