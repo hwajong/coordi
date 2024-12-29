@@ -15,19 +15,44 @@
 | 4-3 | http://localhost:8080/api/product/{id}                        | DELETE | 구현 4-3) 상품 삭제                                                              |
 
 
-### 소스 패키지 구조
+### 기술 스택
+- Spring Boot 
+- Kotlin 
+- H2 DB
+- JPA, JdbcTemplate
+- JUnit5
+- Mokito
+- MockMvc
+- Springdoc-Openapi
 
-### 기술 스택 
 
+### DB 모델링
+- 테이블 설계
+  - DB 테이블은 상품 데이터를 저장하기 위한 product 단일 테이블로만 구성했습니다.
+  - 브랜드, 카테고리 테이블을 별도로 구성해 더 유연하게 만들 수도 있지만 현재 요구사항을 위해선 필요하지 않다고 판단했습니다. 
 
-### 스웨거 
+- 초기화 파일
+  - schema.sql : product 테이블 삭제 후 생성
+  - data.sql : 초기 데이터 인서트
+  
+- JPA, Criteria, jdbcTemplate
+  - Jpa : 간단한 쿼리는 메소드기반 쿼리와, JPQL 을 사용해 처리했습니다.
+  - Criteria : 상품 검색 구현을 위해 사용했습니다. (id, brand, category 조건 검색)
+  - JdbcTemplate : Jpa 를 사용해 단일쿼리로 구현하기 어려운 경우 사용했습니다.  
 
+### Swagger 
+- 아래의 Swagger 페이지를 통해 API 를 확인하고 테스트해 볼 수 있습니다. 
+- url : http://localhost:8080/swagger-ui/index.html
 
-### 코드빌드
-
-### 테스트
 
 ### 실행방법
+```bash
+# 빌드 
+./gradlew clean build
 
+# 실행 
+./gradlew bootRun
 
-### 기타 추가 정보 
+# 테스트 실행 
+./gradlew clean test
+```
